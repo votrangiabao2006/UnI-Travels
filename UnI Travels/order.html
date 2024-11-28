@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="icon" href="logo.jpg">
+    <link rel="stylesheet" type="text/css" href="wetravel 1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .success {
+            margin-top: 20px;
+            color: green;
+            font-size: 18px;
+        }
+        .rating-section {
+            margin-top: 20px;
+        }
+        .rating-section button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .rating-section button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <body class="location-body">
+        <nav>
+            <img src="logo.jpg" class="logo" alt="Logo" title="FirstFlight Travels">
+            <ul class="navbar">
+                <li>
+                    <a href="Home.html">Home</a>
+                    <a href="Locations.html#Locations">Locations</a>
+                    <a href="Locations.html#Packages">Packages</a>
+                    <a href="Thử nghiệm.html">About Us</a>
+                    <a href="Contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+    <section class="location-section">
+        <div class="location-heading">
+            <h1>UNI Travel <span> - Dẫn Lối Bạn Đến Những Kỳ Quan Mới.</span></h1>
+        </div>
+    <h1>Đặt Gói Du Lịch</h1>
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="name">Họ và Tên:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Số Điện Thoại:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Địa Chỉ:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="destination">Chọn Nơi Bạn Muốn Du Lịch:</label>
+            <select id="destination" name="destination" required>
+                <option value="kashmir">Kashmir-India</option>
+                <option value="istanbul">Istanbul-Turkey</option>
+                <option value="paris">Paris-France</option>
+                <option value="paris">Geneva-Switzerland</option>
+                <option value="paris">Port Blair-Andaman & Nicobar</option>
+                <option value="paris">Rome-Italy</option>
+                <option value="bali">Bali-Indonesia</option>
+                <option value="dubai">Dubai-United Arab Emirates</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="guests">Số Lượng Khách Hàng:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Ngày Đi:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <button type="button" class="btn" onclick="confirmOrder()">Xác Nhận</button>
+    </form>
+    <div class="success" id="successMessage"></div>
+
+    <div class="rating-section" id="ratingSection" style="display: none;">
+        <button onclick="goToRatingPage()">Đánh Giá</button>
+    </div>
+
+    <script>
+        // Lấy thông tin từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageName = urlParams.get('package');
+        const packagePrice = parseFloat(urlParams.get('price'));
+
+        function confirmOrder() {
+            // Lấy dữ liệu từ form
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const destination = document.getElementById('destination').value;
+            const guests = parseInt(document.getElementById('guests').value);
+            const date = document.getElementById('date').value;
+
+            // Tính tổng tiền
+            const totalPrice = packagePrice * guests;
+
+            // Hiển thị thông báo thành công
+            const successMessage = `
+                Chúc mừng quý khách ${name} đã xác nhận đặt hàng thành công!
+                <br>Điểm đến: ${destination}
+                <br>Số lượng khách: ${guests}
+                <br>Ngày đi: ${date}
+                <br>Tổng tiền phải thanh toán: ${totalPrice.toLocaleString()} VNĐ.
+            `;
+            document.getElementById('successMessage').innerHTML = successMessage;
+
+            // Hiện ô đánh giá
+            document.getElementById('ratingSection').style.display = 'block';
+        }
+
+        function goToRatingPage() {
+            window.location.href = 'danhgia.html'; // Chuyển đến trang đánh giá
+        }
+    </script>
+</body>
+</html>

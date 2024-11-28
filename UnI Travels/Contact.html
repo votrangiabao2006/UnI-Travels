@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="logo.jpg">
+    <link rel="stylesheet" type="text/css" href="wetravel 1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">   
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script>
+        // Thêm JavaScript để hiển thị thông báo khi submit
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Ngăn gửi form mặc định
+            alert("Chúng tôi đã nhận được đóng góp của bạn, chúng tôi sẽ phản hồi trong thời gian sớm nhất.");
+            event.target.reset(); // Xóa nội dung form sau khi submit
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="logo.jpg" class="logo" alt="Logo" title="FirstFlight Travels">
+        <ul class="navbar">
+            <li>
+                <a href="Home.html">Home</a>
+                <a href="Locations.html#Locations">Locations</a>
+                <a href="Locations.html#Packages">Packages</a>
+                <a href="Thử nghiệm.html">About Us</a>
+                <a href="Contact.html">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="contact">
+        <div class="contact-form">
+            <h1>UNI <span>Travel</span></h1>
+            <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn!  
+                Hãy điền thông tin vào mẫu dưới đây và bạn sẽ nhận được phản hồi từ chúng tôi trong vòng 2 ngày làm việc.</p>
+            <form onsubmit="handleFormSubmit(event)">
+                <input type="text" name="myname" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your E-mail" required>
+                <input type="text" name="subject" placeholder="What brings you here?" required>
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Submit" class="submit-btn">
+            </form>
+        </div>
+    </section>
+
+    <div class="end">
+        <p>UNI Travel – Khám Phá Vẻ Đẹp Mỗi Nơi Bạn Đến.<br>Website developed by: My GR</p>
+    </div>
+</body>
+</html>
